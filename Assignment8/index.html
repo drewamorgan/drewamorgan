@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html><head>
+  <style>
+      
+      body{
+        box-sizing: border-box;
+        margin: 10px;
+        background-color: #6E605D;
+      }
+      
+  h1 {
+      color: #7F1A07; 
+      font-family: arial; 
+      font-size: 25px;
+      font-weight: bold;
+  }
+h2{
+    color: #7F1A07; 
+    font-family: arial; 
+    font-size: 20px;
+    font-weight: bold;
+}
+a {
+    color: #FF6240;
+}
+    p {
+        color: #7F1A07; 
+        font-family: arial; 
+        font-size: 15px;
+  }
+  div {
+      background-color: #FFF2C2;
+  }
+img {
+    float: right;
+    margin: 0 0 10px 10px;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+  
+#map {
+    overflow: hidden;
+     height: 300px;
+	 width: 100%;
+    }
+.type-picker{
+    position: absolute;
+    top: 138px;
+    left:74px;
+      }
+  
+  .main {
+  	padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  	  }
+         
+    </style>
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css">
+<script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script><style></style><style></style><style></style><style></style>
+
+    </head>
+    <body>
+
+        
+        <div><h1>NYC Art Gallery Experience - Weeks 5-7 Website</h1>
+        <p></p>
+        <p>Here is a map of Art Galleries located in New York City sourced from <a href="https://data.cityofnewyork.us">NYC Open Data </a></p>
+  </div>
+        <div id="map">
+</div>
+
+         <select class="type-picker">
+            <option value="all">All Neighborhoods</option>
+            <option value="Astoria">Astoria</option>
+            <option value="Bayside">Bayside</option>
+            <option value="Bronx">Bronx</option>
+            <option value="Brooklyn">Brooklyn</option>
+            <option value="East Elmhurst">East Elmhurst</option>
+            <option value="Far Rockaway">Far Rockaway</option>
+            <option value="Flushing">Flushing</option>
+            <option value="Forest Hills">Forest Hills</option>
+            <option value="Jamaica">Jamaica</option>
+  <option value="Long Island City">Long Island City</option>
+    <option value="New York">New York</option>
+  <option value="Middle Village">Middle Village</option>
+  <option value="Woodside">Woodside</option>
+  <option value="Staten Island">Staten Island</option>
+  <option value="Saint Albans">Saint Albans</option>
+  <option value="Ridgewood">Ridgewood</option>
+  <option value="Rego Park">Rego Park</option>
+  
+  
+        </select>
+  
+ <div class="clearfix"><a href="http://folkartmuseum.org/" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/AFAM_Exterior_2013.jpg/220px-AFAM_Exterior_2013.jpg"> </a><h2>Most Recent Museum Experience</h2><p>Speaking of art galleries in NYC, the last one I visited was the American Folk Art Museum across from Lincoln Center on the Upper West Side. It's a very nice (albeit small) space, but currently they have a quite morbid exhibit displaying posthumous portrature where most of the subjects are children. So it's important to be in the right mood before you go. Click on the image to learn more.</p> </div>
+        
+    <script>
+
+  var gallerieslayer;
+  $(document).ready(function () {
+  cartodb.createVis('map', 'https://thenewschool.carto.com/u/aamorgan/api/v2/viz/d89cefa0-fa3a-11e6-a4f3-0e3ebc282e83/viz.json', { 
+                    center_lat: 40.7306, 
+                    center_lon: -73.93,
+                    zoom: 11,
+                    shareable: false,
+                    search: false,
+                })
+  .done(function (vis, layers) {
+      gallerieslayer = layers[1].getSubLayer(0);
+	  
+	 var popupTemplate = '<div class="cartodb-popup v2"> <a href="#close" class="cartodb-popup-close-button close">x</a> <div class="cartodb-popup-content-wrapper"> <div class="cartodb-popup-content"> <a href="{{url}}" target="_blank">{{name}}</a> <p><strong>TELEPHONE</strong></p>{{tel}} </div> </div> <div class="cartodb-popup-tip-container"></div> </div>';
+	gallerieslayer.infowindow.set('template_type', 'mustache');
+	gallerieslayer.infowindow.set('template', popupTemplate);
+        });
+		
+    $('.type-picker').change(function () {
+                    var type = $('.type-picker').val();
+                    var sql;
+                    if (type === 'all') {
+                      sql = "SELECT * FROM aamorgan.geo_export_fb90dce5_3f0a_4a8d_ab79_6a924a44081c";
+                    }
+                    else {
+                       sql = "SELECT * FROM aamorgan.geo_export_fb90dce5_3f0a_4a8d_ab79_6a924a44081c WHERE city ='" + type + "'";
+                    }
+                    gallerieslayer.setSQL(sql);
+                });
+            });
+      </script>
+  </body>
+</html>
