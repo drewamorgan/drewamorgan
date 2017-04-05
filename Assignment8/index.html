@@ -33,7 +33,7 @@ a {
   }
 img {
     float: right;
-    margin: 0 0 10px 10px;
+    margin: 5px 5px 5px 5px;
 }
 .clearfix::after {
     content: "";
@@ -46,19 +46,25 @@ img {
   
 #map {
     overflow: hidden;
-     height: 300px;
+     height: 400px;
 	 width: 100%;
     }
-.type-picker{
+.mapcontainer {
+	margin-right: 20px;
+	margin-left: 20px;
+	}
+.type-picker {
     position: absolute;
-    top: 138px;
-    left:74px;
+    top: 175px;
+    left:95px;
       }
   
   .main {
-  	padding: 5px;
+  	padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+	margin-left: 20px;
+	margin-right:20px;
   	  }
          
     </style>
@@ -72,12 +78,13 @@ img {
     <body>
 
         
-        <div><h1>NYC Art Gallery Experience - AGIS Week 9 Assignment 8 Website</h1>
+        <div class="main"><h1>NYC Art Gallery Experience - AGIS Week 9, Assignment 8 Website</h1>
         <p></p>
         <p>Here is a map of Art Galleries located in New York City sourced from <a href="https://data.cityofnewyork.us">NYC Open Data </a></p>
   </div>
-        <div id="map">
-</div>
+
+     <div class="mapcontainer"> <div id="map">
+</div></div>
 
          <select class="type-picker">
             <option value="all">All Neighborhoods</option>
@@ -102,8 +109,8 @@ img {
   
         </select>
   
- <div class="clearfix"><a href="http://folkartmuseum.org/" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/AFAM_Exterior_2013.jpg/220px-AFAM_Exterior_2013.jpg"> </a><h2>Most Recent Museum Experience</h2><p>Speaking of art galleries in NYC, the last one I visited was the American Folk Art Museum across from Lincoln Center on the Upper West Side. It's a very nice (albeit small) space, but currently they have a quite morbid exhibit displaying posthumous portrature where most of the subjects are children. So it's important to be in the right mood before you go. Click on the image to learn more.</p> </div>
-        
+ <div class="main"> <div class="clearfix"><a href="http://folkartmuseum.org/" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/AFAM_Exterior_2013.jpg/220px-AFAM_Exterior_2013.jpg"> </a><h2>Most Recent Museum Experience</h2><p>Speaking of art galleries in NYC, the last one I visited was the American Folk Art Museum across from Lincoln Center on the Upper West Side. It's a very nice (albeit small) space, but currently they have a quite morbid exhibit displaying posthumous portrature where most of the subjects are children. So it's important to be in the right mood before you go. Click on the image to learn more.</p> </div>
+        </div>
     <script>
 
   var gallerieslayer;
