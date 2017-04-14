@@ -55,6 +55,19 @@
           6.060629556144678
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "lekki_lagos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.5989719629287715,
+          6.49586233341746
+        ]
+      }
     }
   ]
 }
