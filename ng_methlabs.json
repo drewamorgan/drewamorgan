@@ -18,7 +18,10 @@
       "type": "Feature",
       "properties": {
         "location": "Monkey_village_iba",
-        "year": 2010
+        "year": 2010,
+        "marker-symbol": "",
+        "marker-color": "",
+        "marker-size": ""
       },
       "geometry": {
         "type": "Point",
@@ -31,14 +34,18 @@
     {
       "type": "Feature",
       "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
         "location": "silver_estate_isolo",
-        "marker-symbol": ""
+        "marker-symbol": "",
+        "year": 2014,
+        "source": "http://pulse.ng/gist/agent-of-death-ndlea-nab-baron-for-producing-hard-drugs-id3906342.html"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.2883238792419434,
-          6.560079134419954
+          3.330428,
+          6.548941
         ]
       }
     },
