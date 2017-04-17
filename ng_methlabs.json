@@ -17,7 +17,8 @@
     {
       "type": "Feature",
       "properties": {
-        "location": "Monkey_village_iba"
+        "location": "Monkey_village_iba",
+        "year": 2010
       },
       "geometry": {
         "type": "Point",
@@ -30,7 +31,8 @@
     {
       "type": "Feature",
       "properties": {
-        "location": "silver_estate_isolo"
+        "location": "silver_estate_isolo",
+        "marker-symbol": ""
       },
       "geometry": {
         "type": "Point",
