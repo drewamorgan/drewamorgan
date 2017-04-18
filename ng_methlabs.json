@@ -134,11 +134,11 @@
         "prod_size": 4000,
         "prod_unit": "kilogram",
         "year": 2016,
-        "month": "",
+        "month": "february",
         "marker-symbol": "",
         "marker-color": "",
-        "marker-size": "http://nationaldailyng.com/ndlea-busts-methamphetamine-laboratory-in-asaba/",
-        "source": "february"
+        "marker-size": "",
+        "source": "http://nationaldailyng.com/ndlea-busts-methamphetamine-laboratory-in-asaba/"
       },
       "geometry": {
         "type": "Point",
