@@ -4,7 +4,10 @@
     {
       "type": "Feature",
       "properties": {
-        "location": "Daily_Times_Estate"
+        "location": "Daily_Times_Estate",
+        "prod_size": 25,
+        "prod_unit": "kilogram",
+        "year": 2012
       },
       "geometry": {
         "type": "Point",
@@ -21,7 +24,9 @@
         "year": 2010,
         "marker-symbol": "",
         "marker-color": "",
-        "marker-size": ""
+        "marker-size": "",
+        "prod_size": 50,
+        "prod_unit": "kilogram"
       },
       "geometry": {
         "type": "Point",
@@ -75,6 +80,22 @@
         "coordinates": [
           3.5989719629287715,
           6.49586233341746
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "ajah_lagos",
+        "prod_size": 2012,
+        "marker-size": 20,
+        "source": "kilogram"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.563861846923828,
+          6.469003855387085
         ]
       }
     }
