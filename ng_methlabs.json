@@ -7,7 +7,8 @@
         "location": "Daily_Times_Estate",
         "prod_size": 25,
         "prod_unit": "kilogram",
-        "year": 2012
+        "year": 2012,
+        "month": ""
       },
       "geometry": {
         "type": "Point",
@@ -21,12 +22,13 @@
       "type": "Feature",
       "properties": {
         "location": "Monkey_village_iba",
-        "year": 2010,
+        "year": 2011,
         "marker-symbol": "",
         "marker-color": "",
         "marker-size": "",
         "prod_size": 50,
-        "prod_unit": "kilogram"
+        "prod_unit": "kilogram",
+        "month": "june"
       },
       "geometry": {
         "type": "Point",
@@ -60,7 +62,10 @@
         "marker-color": "#7e7e7e",
         "marker-size": "medium",
         "marker-symbol": "",
-        "location": "nanka_anambra"
+        "location": "nanka_anambra",
+        "prod_size": 20,
+        "year": 2012,
+        "prod_unit": "kilogram"
       },
       "geometry": {
         "type": "Point",
@@ -73,7 +78,12 @@
     {
       "type": "Feature",
       "properties": {
-        "location": "lekki_lagos"
+        "location": "lekki_lagos",
+        "year": "",
+        "marker-symbol": "",
+        "marker-color": "",
+        "marker-size": "",
+        "source": ""
       },
       "geometry": {
         "type": "Point",
@@ -87,15 +97,33 @@
       "type": "Feature",
       "properties": {
         "location": "ajah_lagos",
-        "prod_size": 2012,
-        "marker-size": 20,
-        "source": "kilogram"
+        "prod_size": 20,
+        "marker-size": "",
+        "source": "",
+        "year": 2012,
+        "prod_unit": "kilogram"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           3.563861846923828,
           6.469003855387085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "Jakande_Estate_Lagos",
+        "prod_size": 20,
+        "prod_unit": "kilogram",
+        "year": 2012
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.5036516189575195,
+          6.430027475726402
         ]
       }
     }
