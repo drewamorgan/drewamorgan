@@ -126,6 +126,27 @@
           6.430027475726402
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "asaba_superlab",
+        "prod_size": 4000,
+        "prod_unit": "kilogram",
+        "year": 2016,
+        "month": "",
+        "marker-symbol": "",
+        "marker-color": "",
+        "marker-size": "http://nationaldailyng.com/ndlea-busts-methamphetamine-laboratory-in-asaba/",
+        "source": "february"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.684279441833496,
+          6.188726030677376
+        ]
+      }
     }
   ]
 }
