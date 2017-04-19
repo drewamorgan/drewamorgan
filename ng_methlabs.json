@@ -100,24 +100,6 @@
     {
       "type": "Feature",
       "properties": {
-        "location": "ajah_lagos",
-        "prod_size": 20,
-        "marker-size": "",
-        "source": "",
-        "year": 2012,
-        "prod_unit": "kilogram"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          3.563861846923828,
-          6.469003855387085
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "location": "Jakande_Estate_Lagos",
         "prod_size": 20,
         "prod_unit": "kilogram",
