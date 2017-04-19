@@ -8,7 +8,8 @@
         "prod_size": 25,
         "prod_unit": "kilogram",
         "year": 2012,
-        "month": ""
+        "month": "",
+        "source": "http://www.premiumtimesng.com/news/117963-discovery-of%E2%80%AA-illegal-meth-labs-in-lagos-worries-fashola.html"
       },
       "geometry": {
         "type": "Point",
@@ -21,20 +22,21 @@
     {
       "type": "Feature",
       "properties": {
-        "location": "Monkey_village_iba",
+        "location": "Monkey_village_iyana",
         "year": 2011,
         "marker-symbol": "",
         "marker-color": "",
         "marker-size": "",
         "prod_size": 50,
         "prod_unit": "kilogram",
-        "month": "june"
+        "month": "june",
+        "source": "http://julianafrancis.blogspot.com/2016/04/meth-silent-killer-on-prowl.html"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.197836875915527,
-          6.491880823642223
+          3.3011770248413086,
+          6.618996326583256
         ]
       }
     },
@@ -46,7 +48,9 @@
         "location": "silver_estate_isolo",
         "marker-symbol": "",
         "year": 2014,
-        "source": "http://pulse.ng/gist/agent-of-death-ndlea-nab-baron-for-producing-hard-drugs-id3906342.html"
+        "source": "http://pulse.ng/gist/agent-of-death-ndlea-nab-baron-for-producing-hard-drugs-id3906342.html",
+        "prod_size": "",
+        "prod_unit": ""
       },
       "geometry": {
         "type": "Point",
@@ -145,6 +149,19 @@
         "coordinates": [
           6.684279441833496,
           6.188726030677376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "monkey_village_ikeja"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.3537912368774414,
+          6.606612360758266
         ]
       }
     }
