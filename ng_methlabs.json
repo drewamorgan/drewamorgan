@@ -8,7 +8,7 @@
         "prod_size": 25,
         "prod_unit": "kilogram",
         "year": 2012,
-        "month": "",
+        "month": "february",
         "source": "http://www.premiumtimesng.com/news/117963-discovery-of%E2%80%AA-illegal-meth-labs-in-lagos-worries-fashola.html"
       },
       "geometry": {
@@ -121,7 +121,10 @@
         "location": "Jakande_Estate_Lagos",
         "prod_size": 20,
         "prod_unit": "kilogram",
-        "year": 2012
+        "year": 2012,
+        "source": "http://julianafrancis.blogspot.com/2016/04/meth-silent-killer-on-prowl.html",
+        "marker-size": "",
+        "month": "november"
       },
       "geometry": {
         "type": "Point",
@@ -162,6 +165,27 @@
         "coordinates": [
           3.3537912368774414,
           6.606612360758266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "ibeju_lekki_ajah",
+        "prod_size": 20,
+        "prod_unit": "kilogram",
+        "year": 2012,
+        "month": "december",
+        "source": "",
+        "marker-symbol": "",
+        "marker-color": "",
+        "marker-size": "https://www.pmnewsnigeria.com/2012/12/27/nigeria-arrests-colombian-drug-chemist/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.5758566856384277,
+          6.4841415740202155
         ]
       }
     }
