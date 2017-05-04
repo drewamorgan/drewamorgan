@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+    <head>
+        
+        <style>
+            
+h2 {
+    color: #7F1A07; 
+     font: bold;
+    font-size: 20px;
+    font-family: Sans-Serif;
+}
+#map {
+    overflow: hidden;
+     height: 400px;
+	 width: 100%;
+    }
+.mapcontainer {
+	margin-left: 208px;
+	}
+.disclaimer {
+                margin-left: 210px;
+    background-color: lightgrey;
+    padding: 10px;
+                }
+.image { 
+   position: relative; 
+            }
+h1 { 
+   position: absolute; 
+   top: 0;
+    left: 0;
+   width: 100%; 
+}
+            
+h1 span { 
+   color: white; 
+   font: bold 32px/45px Helvetica, Sans-Serif; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); 
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}            
+h1 span.spacer {
+   padding:0 5px;
+}
+            
+/*
+#infobar {
+        background-color: lightgray;
+        height: 30%
+        float: bottom;
+        width: 100%;
+        margin-left: 206px;
+      }
+.inifobar-inner {
+        padding: 10px;
+      }
+*/
+        
+        
+        </style>
+        
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css">
+<script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script><style></style><style></style><style></style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        
+    </head>
+    <body>
+        
+       
+        <div class="w3-sidebar w3-bar-block" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-button w3-large" style="margin-left: 206px">Close &times;</button>
+            <span style="margin-left: 206px">The ongoing discovery of clandestine methamphetamine labs the growing interception of methamphetamines attempting to be smuggled out of airports is a growing concern for drug enforcement officials in Nigeria.</span>
+</div>
+        
+        <div class="w3-sidebar w3-white w3-bar-block" style="width:206px"> 
+
+     <div class="image"><img src="NGflag.png" alt="" />
+         <h1><span> NIGERIAN <br />METH MAP</span> </h1></div>
+  <button class="w3-button w3-white w3-large" onclick="w3_open()">BACKGROUND</button>
+  <button class="w3-button w3-white w3-large" id="labs" >LABS SITES</button>
+  <button class="w3-button w3-white w3-large" id="contam" >CONTAMINATION</button>
+<button class="w3-button w3-white w3-large" id="traffick">TRAFFICKING</button>
+</div>
+        
+        
+        <div class="mapcontainer"> <div id="map">
+</div></div>
+
+        <div class= "disclaimer"> <h2>DISCLAIMER:</h2> Lab location data on this map are approximated, not exact addresses. </div>
+        
+        <script>
+
+            
+
+var labLayer;
+var contamLayer;
+var traffickLayer;
+var leafletMap;
+            
+$(document).ready(function () {
+  cartodb.createVis('map', 'https://thenewschool.carto.com/u/aamorgan/api/v2/viz/83842938-2317-11e7-8c56-0e3ebc282e83/viz.json', { 
+                    center_lat: 6.165132, 
+                    center_lon: 5.369568,
+                    zoom: 8,
+                    shareable: false,
+                    search: false,
+                    scrollwheel: true,
+                    })
+      .done(function (vis, layers) {
+        leafletMap = vis.getNativeMap();
+        labLayer = layers[1].getSubLayer(0);
+        contamLayer = layers[1].getSubLayer(1);
+        traffickLayer = layers[1].getSubLayer(2);
+       labLayer.hide();
+        contamLayer.hide();
+        traffickLayer.hide();          
+  
+      var popupTemplate = '<div class="cartodb-popup v2"> <a href="#close" class="cartodb-popup-close-button close">x</a> <div class="cartodb-popup-content-wrapper"> <div class="cartodb-popup-content"> <p><strong>LOCATION</strong></p>{{location}} <p>Discovered in {{year}}</p> <p><strong>LAB CAPACITY PER CYCLE</strong></p>{{prod_size}} kilograms <p><a href="{{source}}" target="_blank"><strong>SOURCE ARTICLE</strong></a></p> </div> </div> <div class="cartodb-popup-tip-container"></div> </div>';
+                        labLayer.infowindow.set('template_type', 'mustache');
+                        labLayer.infowindow.set('template', popupTemplate);
+                    });
+    
+    $('#labs').on("click", function(){
+        labLayer.show();
+        labLayer.setSQL("SELECT * FROM nigerian_methlabs");
+                                     contamLayer.setSQL("SELECT * FROM nigerian_methlabs_1 where cartodb_id = 2");
+                                      traffickLayer.setSQL("SELECT * FROM ngmethseizures_airports where cartodb_id = 11");                                      
+                                     });
+    
+     $('#contam').on("click", function(){
+         contamLayer.show();
+         leafletMap.setView([6.535692,3.369370], 11);
+         labLayer.setSQL("SELECT * FROM nigerian_methlabs where cartodb_id = 12");
+                                     contamLayer.setSQL("SELECT * FROM nigerian_methlabs_1");
+                                      traffickLayer.setSQL("SELECT * FROM ngmethseizures_airports where cartodb_id = 11");                                     
+                                     });
+    
+     $('#traffick').on("click", function(){
+          traffickLayer.show();
+         leafletMap.setView([8.244110, 8.074951], 6);
+         labLayer.setSQL("SELECT * FROM nigerian_methlabs where cartodb_id = 12");
+                                     contamLayer.setSQL("SELECT * FROM nigerian_methlabs_1 where cartodb_id = 2");
+                                      traffickLayer.setSQL("SELECT * FROM ngmethseizures_airports");
+                                      });
+
+});
+ 
+            
+function w3_open() {
+    document.getElementById("mySidebar").style.width = "100%";
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("mySidebar").style.backgroundColor= "white";
+    $(".cartodb-zoom").hide();
+    $(".cartodb-logo").hide();
+    $(".leaflet-bottom leaflet-right").hide();
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    $(".cartodb-zoom").show();
+    $(".cartodb-logo").show();
+    $(".leaflet-bottom leaflet-right").show();
+    };
+
+$(function() {
+    
+    $("h2")
+        .wrapInner("<span>")
+
+    $("h2 br")
+        .before("<span class='spacer'>")
+        .after("<span class='spacer'>");
+
+});
+            
+
+      </script>
+        
+    </body>
+</html>
