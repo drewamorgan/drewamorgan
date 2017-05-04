@@ -119,9 +119,14 @@ $(document).ready(function () {
         contamLayer.hide();
         traffickLayer.hide();          
   
-      var popupTemplate = '<div class="cartodb-popup v2"> <a href="#close" class="cartodb-popup-close-button close">x</a> <div class="cartodb-popup-content-wrapper"> <div class="cartodb-popup-content"> <p><strong>LOCATION</strong></p>{{location}} <p>Discovered in {{year}}</p> <p><strong>LAB CAPACITY PER CYCLE</strong></p>{{prod_size}} kilograms <p><a href="{{source}}" target="_blank"><strong>SOURCE ARTICLE</strong></a></p> </div> </div> <div class="cartodb-popup-tip-container"></div> </div>';
-                        labLayer.infowindow.set('template_type', 'mustache');
-                        labLayer.infowindow.set('template', popupTemplate);
+          labLayer.setInteractivity('cartodb_id, location, source, prod_size, year');
+   
+    var popupTemplate = '<div class="cartodb-popup v2"> <a href="#close" class="cartodb-popup-close-button close">x</a> <div class="cartodb-popup-content-wrapper"> <div class="cartodb-popup-content"> <p><strong>LOCATION</strong></p>{{location}} <p>Discovered in {{year}}</p> <p><strong>LAB CAPACITY PER CYCLE</strong></p>{{prod_size}} kilograms <p><a href="{{source}}" target="_blank"><strong>SOURCE ARTICLE</strong></a></p> </div> </div> <div class="cartodb-popup-tip-container"></div> </div>';
+    labLayer.infowindow.set('template_type', 'mustache');
+    labLayer.infowindow.set('template', popupTemplate);
+	 
+    labLayer.hide();
+	  
                     });
     
     $('#labs').on("click", function(){
