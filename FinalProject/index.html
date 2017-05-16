@@ -172,43 +172,17 @@ $(document).ready(function () {
     traffickLayer.on('featureClick', function(e, latlng, pos, data) {
          console.log(data);
         $('#data-name').text(data.airport_name);
-  //      $('#data-qty').text(data.qty);
-    //    $('#data-unit').text(data.unit);
-      //  $('#data-destination').text(data.destination);
-       	//$('#data-source').text(data.source);
 		
- var qty = 'https://aamorgan.carto.com/api/v2/sql?' + $.param({
-                   q: "SELECT qty FROM ngmethseizures_airports"
+    var url = 'https://aamorgan.carto.com/api/v2/sql?' + $.param({
+                   q: "SELECT * FROM ngmethseizures_airports"
                 });
-                $.getJSON(qty)
+                $.getJSON(url)
                    .done(function(data) {
 				   	console.log(data);
-                          $('#data-qty').text(data.rows[0] + ' kilograms');
-                    });
-	
-	var date = 'https://aamorgan.carto.com/api/v2/sql?' + $.param({
-                   q: "SELECT date FROM ngmethseizures_airports"
-                });
-                $.getJSON(date)
-                   .done(function(data) {
-				   console.log(data);
-                          $('#data-date').text(data.rows[0])
-                    });
-	var dest = 'https://aamorgan.carto.com/api/v2/sql?' + $.param({
-                   q: "SELECT destination FROM ngmethseizures_airports"
-                });
-                $.getJSON(dest)
-                   .done(function(data) {
-				   console.log(data);
-                          $('#data-destination').text(data.rows[0])
-                    });
-	var source = 'https://aamorgan.carto.com/api/v2/sql?' + $.param({
-                   q: "SELECT source FROM ngmethseizures_airports"
-                });
-                $.getJSON(source)
-                   .done(function(data) {
-				   console.log(data);
-                          $('#data-source').text(data.rows[0])
+                          $('#data-qty').text(data.rows[0].qty + ' kilograms of Meth');
+                          $('#data-date').text('Date: ' + data.rows[0].date)
+                          $('#data-destination').text(data.rows[0].destination)
+                          $('#data-source').text(data.rows[0].source)
                     });
 
     });
