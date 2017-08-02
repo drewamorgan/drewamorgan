@@ -90,23 +90,8 @@ confiscated in dozens of home-grown laboratories across the country as well as f
 couriers detained in Nigerian airports over the same period, up from only a third of that a year
 prior. In 2016, the same agency also reported dismantling the first industrial scale meth
 laboratory that was estimated to produce four tons of methamphetamines per week.
-		    <p></p>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/dBuYMhDtQxo" frameborder="0" allowfullscreen></iframe>
-		    <p></p>
-		SOURCES:    https://www.nigerianbulletin.com/threads/ndlea-busts-illegal-drug-lab-disguised-as-schools-in-lagos.28965/
-http://nypost.com/2015/07/24/west-africa-breaking-bad-with-surge-in-meth-production/
-http://nationaldailyng.com/ndlea-arrests-south-africa-bound-drug-baron-with-576kgs-of-narcotics/
-http://saharareporters.com/2016/03/13/ndlea-busts-major-methamphetamine-lab-delta-state-arrests-four-mexicans-four-nigerians
-https://www.simonateba.com/2016/03/12/ndlea-discovers-super-clandestine-methamphetamine-lab-arrests-4-nigerians-4-mexicans/
-http://www.borderlandbeat.com/2016/03/4-mexicans-arrested-in-nigeria-for.html
-https://www.pressreader.com/nigeria/daily-trust/20160520/282114930806104
-Lu, Max, and Jessica Burnum. "Spatial Patterns of Clandestine Methamphetamine Labs in Colorado Springs, Colorado." Geography and Drug Addiction (n.d.): 193-207. Web.
-Transnational Organized Crime in West Africa." (2013): n. pag. United Nations Office on Drugs and Crime, Feb. 2013. Web. https://www.unodc.org/documents/data-and-analysis/tocta/West_Africa_TOCTA_2013_EN.pdf.
-http://drugs.globalincidentmap.com/
-https://news.vice.com/article/nigeria-dismantles-a-crystal-meth-lab-built-with-mexican-expertise
-Bartos, Lorene. "Meth Production Is Toxic to Communities." Meth Production Is Toxic to Communities. NEBRASKA EXTENSION IN LANCASTER COUNTY, July 2005. Web. 04 May 2017. http://lancaster.unl.edu/family/methtoxic.shtml.
-
-		</div>
+            </div>
 </div>
         
         <div class="w3-sidebar w3-white w3-bar-block" style="width:206px"> 
@@ -172,17 +157,21 @@ $(document).ready(function () {
     traffickLayer.on('featureClick', function(e, latlng, pos, data) {
          console.log(data);
         $('#data-name').text(data.airport_name);
+        $('#data-qty').text(data.qty);
+        $('#data-unit').text(data.unit);
+        $('#data-destination').text(data.destination);
+        $('#data-source').text(data.source);
 		
-    var url = 'https://aamorgan.carto.com/api/v2/sql?' + $.param({
+ var url = 'https://aamorgan.carto.com/api/v2/sql?' + $.param({
                    q: "SELECT * FROM ngmethseizures_airports"
                 });
                 $.getJSON(url)
                    .done(function(data) {
 				   	console.log(data);
-                          $('#data-qty').text(data.rows[0].qty + ' kilograms of Meth');
-                          $('#data-date').text('Date: ' + data.rows[0].date)
-                          $('#data-destination').text(data.rows[0].destination)
-                          $('#data-source').text(data.rows[0].source)
+                          $.each('#data-qty').text(data.rows[0].qty + ' kilograms');
+                          $.each('#data-date').text('Date:' + data.rows[0].date)
+                          $.each('#data-destination').text(data.rows[0].destination)
+                          $.each('#data-source').text(data.rows[0].source)
                     });
 
     });
